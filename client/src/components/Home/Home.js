@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
-import {StyleSheet, Text, View, ScrollView} from 'react-native'
+import {StyleSheet, Text, View, ScrollView, Alert} from 'react-native'
 
 import LinearGradient from 'react-native-linear-gradient';
+
+import quizzes from '../../data/quizzes.json';
 
 export default class Home extends Component {
   render() {
@@ -15,45 +17,37 @@ export default class Home extends Component {
           <Text style={styles.headingTwo}>You can select a topic below and start revising right now!</Text>
         </View>
         <View style={styles.categories}>
-          {/* temporary static category and topic loading */}
-          <View style={styles.category}>
-            <Text style={styles.categoryHeading}>Elements</Text>
-            <ScrollView 
-              style={styles.topics}
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            >
-              <View style={[styles.topic, styles.activeTopic, styles.firstTopic]}>
-                <Text style={styles.topicHeadingOne}>Symbols</Text>
-                <Text style={styles.topicHeadingTwo}>Revise</Text>
+          {
+            Object.keys(quizzes).map(category => (
+              <View 
+                style={styles.category}
+                key={category}
+              >
+                <Text style={styles.categoryHeading}>{category}</Text>
+                <ScrollView 
+                  style={styles.topics}
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                >
+                  {
+                    quizzes[category].map((topic, index) => (
+                      <View 
+                        style={[
+                          styles.topic, 
+                          topic.active ? styles.activeTopic : styles.inactiveTopic, 
+                          index === 0 ? styles.firstTopic : null
+                        ]}
+                        key={index}
+                      >
+                        <Text style={styles.topicHeadingOne}>{topic.title}</Text>
+                        <Text style={styles.topicHeadingTwo}>{topic.status}</Text>
+                      </View>
+                    ))
+                  }
+                </ScrollView>
               </View>
-              <View style={[styles.topic, styles.inactiveTopic]}>
-                <Text style={styles.topicHeadingOne}>Names</Text>
-                <Text style={styles.topicHeadingTwo}>Coming Soon!</Text>
-              </View>
-              <View style={[styles.topic, styles.inactiveTopic]}>
-                <Text style={styles.topicHeadingOne}>Electrical Charges</Text>
-                <Text style={styles.topicHeadingTwo}>Coming Soon!</Text>
-              </View>
-            </ScrollView>
-          </View>
-          <View style={styles.category}>
-            <Text style={styles.categoryHeading}>Compounds</Text>
-            <ScrollView 
-              style={styles.topics}
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            >
-              <View style={[styles.topic, styles.inactiveTopic, styles.firstTopic]}>
-                <Text style={styles.topicHeadingOne}>Polyatomic Ions</Text>
-                <Text style={styles.topicHeadingTwo}>Coming Soon!</Text>
-              </View>
-              <View style={[styles.topic, styles.inactiveTopic]}>
-                <Text style={styles.topicHeadingOne}>Naming Compounds</Text>
-                <Text style={styles.topicHeadingTwo}>Coming Soon!</Text>
-              </View>
-            </ScrollView>
-          </View>
+            ))
+          }
         </View>
         <View style={styles.footer}>
           <Text style={styles.footerName}>BASICALLY</Text>

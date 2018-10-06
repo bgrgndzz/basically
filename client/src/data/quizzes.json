@@ -1,0 +1,31 @@
+{
+  "Elements": [
+    {
+      "title": "Symbols",
+      "status": "Revise",
+      "active": true
+    },
+    {
+      "title": "Names",
+      "status": "Coming Soon!",
+      "active": false
+    },
+    {
+      "title": "Electrical Charges",
+      "status": "Coming Soon!",
+      "active": false
+    }
+  ],
+  "Compounds": [
+    {
+      "title": "Polyatomic Ions",
+      "status": "Coming Soon!",
+      "active": false
+    },
+    {
+      "title": "Naming Compounds",
+      "status": "Coming Soon!",
+      "active": false
+    }
+  ]
+}
