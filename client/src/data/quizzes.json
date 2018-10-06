@@ -1,31 +1,39 @@
 {
-  "Elements": [
-    {
-      "title": "Symbols",
-      "status": "Revise",
-      "active": true
-    },
-    {
-      "title": "Names",
-      "status": "Coming Soon!",
-      "active": false
-    },
-    {
-      "title": "Electrical Charges",
-      "status": "Coming Soon!",
-      "active": false
-    }
-  ],
-  "Compounds": [
-    {
-      "title": "Polyatomic Ions",
-      "status": "Coming Soon!",
-      "active": false
-    },
-    {
-      "title": "Naming Compounds",
-      "status": "Coming Soon!",
-      "active": false
-    }
-  ]
+  "Elements": {
+    "file": "elements.json",
+    "scope": ["H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Cr", "Fe", "Cu", "Zn", "Br", "Ag", "Sn", "I", "Ba", "Au", "Hg", "Pb"],
+    "quizzes": [
+      {
+        "title": "Element Symbols",
+        "status": "Revise",
+        "active": true
+      },
+      {
+        "title": "Element Names",
+        "status": "Coming Soon!",
+        "active": false
+      },
+      {
+        "title": "Electrical Charges",
+        "status": "Coming Soon!",
+        "active": false
+      }
+    ]
+  },
+  "Compounds": {
+    "file": "compounds.json",
+    "scope": [],
+    "quizzes": [
+      {
+        "title": "Polyatomic Ions",
+        "status": "Coming Soon!",
+        "active": false
+      },
+      {
+        "title": "Naming Compounds",
+        "status": "Coming Soon!",
+        "active": false
+      }
+    ]
+  }
 }
