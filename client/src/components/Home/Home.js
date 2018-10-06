@@ -42,8 +42,18 @@ export default class Home extends Component {
                             index === 0 ? styles.firstTopic : null
                           ]}
                         >
-                          <Text style={styles.topicHeadingOne}>{topic.title}</Text>
-                          <Text style={styles.topicHeadingTwo}>{topic.status}</Text>
+                          <Text 
+                            style={[
+                              styles.topicHeadingOne, 
+                              topic.active ? styles.activeTopicHeadingOne : styles.inactiveTopicHeadingOne
+                            ]}
+                          >{topic.title}</Text>
+                          <Text 
+                            style={[
+                              styles.topicHeadingTwo, 
+                              topic.active ? styles.activeTopicHeadingTwo : styles.inactiveTopicHeadingTwo
+                            ]}
+                          >{topic.status}</Text>
                         </View>
                       </TouchableOpacity>
                     ))
@@ -76,7 +86,7 @@ const styles = StyleSheet.create({
     marginBottom: 25
   },
   headingTwo: {
-    color: '#C2AAFF',
+    color: 'rgba(255, 255, 255, .7)',
     fontSize: 17,
     textAlign: 'center'
   },
@@ -97,20 +107,24 @@ const styles = StyleSheet.create({
   },
   topic: {
     padding: 15,
-    paddingRight: 25,
+    paddingRight: 40,
     marginRight: 10,
-    borderRadius: 8,
-    backgroundColor: '#FFF'
+    borderRadius: 8
   },
   activeTopic: {
-    shadowOffset:{  width: 0,  height: 5,  },
+    backgroundColor: '#FFF',
+    shadowOffset:{width: 0, height: 5},
     shadowRadius: 10,
     shadowColor: '#000',
     shadowOpacity: .1
   },
-  inactiveTopic: {opacity: .5},
+  inactiveTopic: {
+    backgroundColor: 'rgba(255, 255, 255, .35)'
+  },
   topicHeadingOne: {fontWeight: '500'},
-  topicHeadingTwo: {color: '#747474' },
+  activeTopicHeadingTwo: {color: '#747474'},
+  inactiveTopicHeadingOne: {color: 'rgba(255, 255, 255, .7)'},
+  inactiveTopicHeadingTwo: {color: 'rgba(255, 255, 255, .35)'},
   footer: {
     justifyContent: 'center',
     alignItems: 'center',
