@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {StyleSheet, Text, View, ScrollView, Alert} from 'react-native'
+import {StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native'
 
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -31,17 +31,21 @@ export default class Home extends Component {
                 >
                   {
                     quizzes[category].map((topic, index) => (
-                      <View 
-                        style={[
-                          styles.topic, 
-                          topic.active ? styles.activeTopic : styles.inactiveTopic, 
-                          index === 0 ? styles.firstTopic : null
-                        ]}
+                      <TouchableOpacity
+                        onPress={() => this.props.changePage('Quiz', {category, topic})}
                         key={index}
                       >
-                        <Text style={styles.topicHeadingOne}>{topic.title}</Text>
-                        <Text style={styles.topicHeadingTwo}>{topic.status}</Text>
-                      </View>
+                        <View 
+                          style={[
+                            styles.topic, 
+                            topic.active ? styles.activeTopic : styles.inactiveTopic, 
+                            index === 0 ? styles.firstTopic : null
+                          ]}
+                        >
+                          <Text style={styles.topicHeadingOne}>{topic.title}</Text>
+                          <Text style={styles.topicHeadingTwo}>{topic.status}</Text>
+                        </View>
+                      </TouchableOpacity>
                     ))
                   }
                 </ScrollView>
