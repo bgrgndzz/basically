@@ -1,27 +1,30 @@
 {
   "Elements": {
-    "file": "elements.json",
-    "scope": ["H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Cr", "Fe", "Cu", "Zn", "Br", "Ag", "Sn", "I", "Ba", "Au", "Hg", "Pb"],
+    "file": "elements",
+    "scope": [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20],
     "quizzes": [
       {
         "title": "Element Symbols",
         "status": "Revise",
+        "input": "symbol",
         "active": true
       },
       {
         "title": "Element Names",
-        "status": "Coming Soon!",
-        "active": false
+        "status": "Revise",
+        "input": "name",
+        "active": true
       },
       {
         "title": "Electrical Charges",
-        "status": "Coming Soon!",
-        "active": false
+        "status": "Revise",
+        "input": "charge",
+        "active": true
       }
     ]
   },
   "Compounds": {
-    "file": "compounds.json",
+    "file": "compounds",
     "scope": [],
     "quizzes": [
       {

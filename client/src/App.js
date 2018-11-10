@@ -8,7 +8,7 @@ export default class App extends Component {
   state = {
     page: 'Home',
     category: '',
-    topic: '' 
+    quiz: {}
   }
 
   changePage = (page, state={}) => {
@@ -19,7 +19,7 @@ export default class App extends Component {
   };
 
   render() {
-    const props = {
+    let props = {
       changePage: this.changePage
     };
 
@@ -27,7 +27,7 @@ export default class App extends Component {
       return <Home {...props} />;
     } else if (this.state.page === 'Quiz') {
       props.category = this.state.category;
-      props.topic = this.state.topic;
+      props.quiz = this.state.quiz;
 
       return <Quiz {...props} />;
     } else {

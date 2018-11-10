@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native'
+import React, {Component} from 'react';
+import {StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -13,7 +13,7 @@ export default class Home extends Component {
         colors={['#7F00FF', '#0077FF']}
       >
         <View style={styles.headings}>
-          <Text style={styles.headingOne}>Welcome, Buğra!</Text>
+          <Text style={styles.headingOne}>Welcome!</Text>
           <Text style={styles.headingTwo}>You can select a topic below and start revising right now!</Text>
         </View>
         <View style={styles.categories}>
@@ -30,30 +30,31 @@ export default class Home extends Component {
                   showsHorizontalScrollIndicator={false}
                 >
                   {
-                    quizzes[category].map((topic, index) => (
+                    quizzes[category].quizzes.map((quiz, index) => (
                       <TouchableOpacity
-                        onPress={() => this.props.changePage('Quiz', {category, topic})}
+                        onPress={() => this.props.changePage('Quiz', {category, quiz})}
+                        disabled={!quiz.active}
                         key={index}
                       >
                         <View 
                           style={[
                             styles.topic, 
-                            topic.active ? styles.activeTopic : styles.inactiveTopic, 
+                            quiz.active ? styles.activeTopic : styles.inactiveTopic, 
                             index === 0 ? styles.firstTopic : null
                           ]}
                         >
                           <Text 
                             style={[
                               styles.topicHeadingOne, 
-                              topic.active ? styles.activeTopicHeadingOne : styles.inactiveTopicHeadingOne
+                              quiz.active ? styles.activeTopicHeadingOne : styles.inactiveTopicHeadingOne
                             ]}
-                          >{topic.title}</Text>
+                          >{quiz.title}</Text>
                           <Text 
                             style={[
                               styles.topicHeadingTwo, 
-                              topic.active ? styles.activeTopicHeadingTwo : styles.inactiveTopicHeadingTwo
+                              quiz.active ? styles.activeTopicHeadingTwo : styles.inactiveTopicHeadingTwo
                             ]}
-                          >{topic.status}</Text>
+                          >{quiz.status}</Text>
                         </View>
                       </TouchableOpacity>
                     ))
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
     marginBottom: 25
   },
   headingTwo: {
-    color: 'rgba(255, 255, 255, .7)',
+    color: '#e0e0e0',
     fontSize: 17,
     textAlign: 'center'
   },
