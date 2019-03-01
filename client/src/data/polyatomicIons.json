@@ -1,0 +1,142 @@
+[
+  {
+    "name": "hypochlorite",
+    "formula": "ClO",
+    "mass": 51.4521,
+    "charge": "1-",
+    "type": "anion"
+  },
+  {
+    "name": "chlorite",
+    "formula": "ClO[2]",
+    "mass": 67.448,
+    "charge": "1-",
+    "type": "anion"
+  },
+  {
+    "name": "chlorate",
+    "formula": "ClO[3]",
+    "mass": 83.447,
+    "charge": "1-",
+    "type": "anion"
+  },
+  {
+    "name": "perchlorate",
+    "formula": "ClO[4]",
+    "mass": 99.451,
+    "charge": "1-",
+    "type": "anion"
+  },
+  {
+    "name": "nitrite",
+    "formula": "NO[2]",
+    "mass": 46.01,
+    "charge": "1-",
+    "type": "anion"
+  },
+  {
+    "name": "nitrate",
+    "formula": "NO[3]",
+    "mass": 62.0049,
+    "charge": "1-",
+    "type": "anion"
+  },
+  {
+    "name": "permanganate",
+    "formula": "MnO[4]",
+    "mass": 118.934,
+    "charge": "1-",
+    "type": "anion"
+  },
+  {
+    "name": "cyanide",
+    "formula": "CN",
+    "mass": 26.02,
+    "charge": "1-",
+    "type": "anion"
+  },
+  {
+    "name": "acetate",
+    "formula": "CH[3]COO",
+    "mass": 59.04,
+    "charge": "1-",
+    "type": "anion"
+  },
+  {
+    "name": "formate",
+    "formula": "HCOO",
+    "mass": 45.017,
+    "charge": "1-",
+    "type": "anion"
+  },
+  {
+    "name": "dihydrogen phosphate",
+    "formula": "H[2]PO[4]",
+    "mass": 96.986,
+    "charge": "1-",
+    "type": "anion"
+  },
+  {
+    "name": "carbonate",
+    "formula": "CO[3]",
+    "mass": 60.01,
+    "charge": "2-",
+    "type": "anion"
+  },
+  {
+    "name": "chromate",
+    "formula": "CrO[4]",
+    "mass": 115.994,
+    "charge": "2-",
+    "type": "anion"
+  },
+  {
+    "name": "dichromate",
+    "formula": "Cr[2]O[7]",
+    "mass": 215.988,
+    "charge": "2-",
+    "type": "anion"
+  },
+  {
+    "name": "hydrogen phosphate",
+    "formula": "HPO[4]",
+    "mass": 95.978,
+    "charge": "2-",
+    "type": "anion"
+  },
+  {
+    "name": "oxalate",
+    "formula": "C[2]O[4]",
+    "mass": 88.018,
+    "charge": "2-",
+    "type": "anion"
+  },
+  {
+    "name": "sulfite",
+    "formula": "SO[3]",
+    "mass": 80.0632,
+    "charge": "2-",
+    "type": "anion"
+  },
+  {
+    "name": "sulfate",
+    "formula": "SO[4]",
+    "mass": 96.06,
+    "charge": "2-",
+    "type": "anion"
+  },
+  {
+    "name": "phosphate",
+    "formula": "PO[4]",
+    "mass": 94.9714,
+    "charge": "3-",
+    "type": "anion"
+  },
+  {
+    "name": "ammonium",
+    "formula": "NH[4]",
+    "mass": 18.04,
+    "charge": "1+",
+    "type": "cation"
+  }
+]

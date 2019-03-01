@@ -1,41 +1,48 @@
 {
   "Elements": {
-    "file": "elements",
-    "scope": [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20],
     "quizzes": [
       {
         "title": "Element Symbols",
         "status": "Revise",
+        "file": "elements",
         "input": "symbol",
         "active": true
       },
       {
         "title": "Element Names",
         "status": "Revise",
+        "file": "elements",
         "input": "name",
         "active": true
       },
       {
         "title": "Electrical Charges",
         "status": "Revise",
+        "file": "elements",
         "input": "charge",
         "active": true
       }
     ]
   },
-  "Compounds": {
-    "file": "compounds",
-    "scope": [],
+  "Polyatomic Ions": {
     "quizzes": [
       {
-        "title": "Polyatomic Ions",
-        "status": "Coming Soon!",
-        "active": false
+        "title": "Symbols",
+        "status": "Revise",
+        "file": "polyatomicIons",
+        "active": true
       },
       {
-        "title": "Naming Compounds",
-        "status": "Coming Soon!",
-        "active": false
+        "title": "Names",
+        "status": "Revise",
+        "file": "polyatomicIons",
+        "active": true
+      },
+      {
+        "title": "Electrical Charges",
+        "status": "Revise",
+        "file": "polyatomicIons",
+        "active": true
       }
     ]
   }

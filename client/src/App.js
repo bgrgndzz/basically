@@ -1,10 +1,11 @@
+import codePush from 'react-native-code-push';
+
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 import Home from './components/Home/Home';
 import Quiz from './components/Quiz/Quiz';
-
-export default class App extends Component {
+const App = class App extends Component {
   state = {
     page: 'Home',
     category: '',
@@ -51,3 +52,5 @@ const styles = StyleSheet.create({
     fontSize: 24
   }
 });
+
+export default codePush(App);

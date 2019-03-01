@@ -3,9 +3,9 @@ import {StyleSheet, Animated} from 'react-native';
 
 import Question from './Question/Question';
 
-import quizzes from '../../data/quizzes.json';
 const data = {
-  elements: require('../../data/elements.json')
+  elements: require('../../data/elements.json'),
+  polyatomicIons: require('../../data/polyatomicIons.json')
 };
 
 export default class Quiz extends Component {
@@ -26,10 +26,10 @@ export default class Quiz extends Component {
 
   chooseQuestion = () => {
     if (this.props.quiz.title === 'Electrical Charges') {
-      const charges = [-3, -2, -1, 0, 1, 2, 3];
+      const charges = this.props.category === 'Polyatomic Ions' ? ['3-', '2-', '1-', '1+'] : ['3-', '2-', '1-', '0', '1+', '2+', '3+'];
       const shuffledCharges = this.shuffleArray(charges);
       const shuffledScope = this.shuffleArray(this.scope);
-      const inputs = shuffledCharges.slice(0, 4).map(input => shuffledScope.find(element => element.charge === input))
+      const inputs = shuffledCharges.slice(0, 4).map(input => shuffledScope.find(item => item.charge === input))
 
       this.setState({
         inputs: this.shuffleArray(inputs),
@@ -63,10 +63,10 @@ export default class Quiz extends Component {
   }
 
   componentWillMount() {
-    if (quizzes[this.props.category].scope) {
-      this.scope = data[quizzes[this.props.category].file].elements.filter(element => quizzes[this.props.category].scope.includes(element.number));
+    if (this.props.quiz.scope) {
+      this.scope = data[this.props.quiz.file].filter(item => this.props.quiz.scope.includes(item.name));
     } else {
-      this.scope = data[quizzes[this.props.category].file].elements;
+      this.scope = data[this.props.quiz.file];
     }
 
     this.chooseQuestion();

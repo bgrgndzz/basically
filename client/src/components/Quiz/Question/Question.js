@@ -7,9 +7,13 @@ import {
   Image
 } from 'react-native';
 
-import ElementNames from './types/ElementNames.js';
-import ElementSymbols from './types/ElementSymbols.js';
-import ElectricalCharges from './types/ElectricalCharges.js';
+import ElementNames from './types/elements/ElementNames.js';
+import ElementSymbols from './types/elements/ElementSymbols.js';
+import ElementElectricalCharges from './types/elements/ElectricalCharges.js';
+
+import Names from './types/polyatomicIons/Names.js';
+import Symbols from './types/polyatomicIons/Symbols.js';
+import PolyatomicElectricalCharges from './types/polyatomicIons/ElectricalCharges.js';
 
 export default class Question extends Component {
   state = {
@@ -33,16 +37,23 @@ export default class Question extends Component {
   }
   componentWillMount() {
     this.types = {
-      'Element Names': ElementNames,
-      'Element Symbols': ElementSymbols,
-      'Electrical Charges': ElectricalCharges
+      "Elements": {
+        'Element Names': ElementNames,
+        'Element Symbols': ElementSymbols,
+        'Electrical Charges': ElementElectricalCharges
+      },
+      "Polyatomic Ions": {
+        'Names': Names,
+        'Symbols': Symbols,
+        'Electrical Charges': PolyatomicElectricalCharges
+      }
     };
   }
 
   render() {
     const inputs = this.props.inputs;
     const title = this.props.quiz.title;
-    const [question, inputMapper] = this.types[title](styles, this.state.clicked, this.handlePress, this.state.disabled, this.props.correctInput);
+    const [question, inputMapper] = this.types[this.props.category][title](styles, this.state.clicked, this.handlePress, this.state.disabled, this.props.correctInput);
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -159,7 +170,7 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '90%',
-    margin: '2.5%',
+    margin: 5,
     padding: 15,
     borderWidth: 1,
     borderColor: 'rgba(0, 0, 0, 0.1)',
@@ -168,7 +179,7 @@ const styles = StyleSheet.create({
   },
   halfInput: {
     width: '45%',
-    margin: '2%',
+    margin: 5,
     padding: 15,
     borderWidth: 1,
     borderColor: 'rgba(0, 0, 0, 0.1)',
@@ -246,5 +257,11 @@ const styles = StyleSheet.create({
   },
   incorrectPressedChooseInputInner: {
     backgroundColor: '#FF2F2E'
+  },
+  subscript: {
+    fontSize: 20
+  },
+  subscriptSmall: {
+    fontSize: 10
   }
 });
