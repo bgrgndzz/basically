@@ -1,0 +1,161 @@
+{
+  "States of Matter": [
+    {
+      "question": "Which one isn’t a property of gases?",
+      "options": [
+        "Definite volume",
+        "Indefinite volume",
+        "Ability to be compressed",
+        "Indefinite shape"
+      ]
+    },
+    {
+      "question": "Which one is a property of solids?",
+      "options": [
+        "Definite volume",
+        "Indefinite volume",
+        "Ability to be compressed",
+        "Indefinite mass"
+      ]
+    },
+    {
+      "question": "Atoms are closest together in ...?",
+      "options": [
+        "solid form",
+        "gas form",
+        "liquid form",
+        "space"
+      ]
+    },
+    {
+      "question": "Which one isn't a common property of gases and liquids?",
+      "options": [
+        "Indefinite volume",
+        "Indefinite shape",
+        "Definite mass",
+        "Ability to form solutions"
+      ]
+    },
+    {
+      "question": "Which state of matter has a definite volume but an indefinite shape?",
+      "options": [
+        "Liquid",
+        "Solid",
+        "Gas",
+        "None"
+      ]
+    }
+  ],
+  "Pure Substances": [
+    {
+      "question": "Which of the following is true about pure substances?",
+      "options": [
+        "They have a constant composition",
+        "They can be broken down into their particles by a physical change",
+        "They are only compounds",
+        "They are only elements"
+      ]
+    },
+    {
+      "question": "Which type of substance is a pure substance?",
+      "options": [
+        "Compounds and elements",
+        "Compounds, elements, and mixtures",
+        "Elements",
+        "Compounds"
+      ]
+    },
+    {
+      "question": "Which of the following isn't true about elements?",
+      "options": [
+        "They can be broken down into smaller particles",
+        "They are composed of only one kind of atom",
+        "They are notated with a capital letter followed by up to two lowercase letters",
+        "They are listed in the periodic table"
+      ]
+    },
+    {
+      "question": "Which type of substance has more than one type of atom in it?",
+      "options": [
+        "Compounds",
+        "Elements",
+        "Monatiomic gases",
+        "Diatomic molecules"
+      ]
+    },
+    {
+      "question": "Water is an example of ...?",
+      "options": [
+        "a compound",
+        "an element",
+        "a solution",
+        "a colloid"
+      ]
+    },
+    {
+      "question": "Which of the following isn't true about compounds?",
+      "options": [
+        "They can be broken down into smaller particles by a physical change",
+        "They are composed of two or more atoms of the same element",
+        "They must have at least two different elements",
+        "They have fixed compositions"
+      ]
+    },
+    {
+      "question": "Which of the following is the definition of the “Law of Constant Composition”?",
+      "options": [
+        "The elemental composition of a compound is always the same",
+        "The elemental composition of a compound is never the same",
+        "The elemental composition of a compound depends on the temperature and pressure of the environment",
+        "The elemental composition of a compound depends only on the temperature of the environment"
+      ]
+    }
+  ],
+  "Classification of Matter": [
+    {
+      "question": "Which one isn’t a property of a matter?",
+      "options": [
+        "It doesn’t have to have a definite mass",
+        "It occupies space",
+        "It has mass",
+        "It doesn't have to have a definite volume"
+      ]
+    },
+    {
+      "question": "Which one is a substance that can not be broken down into smaller parts?",
+      "options": [
+        "Element",
+        "Molecule",
+        "Atom",
+        "Compound"
+      ]
+    },
+    {
+      "question": "Which one is the smallest particle of a substance?",
+      "options": [
+        "Atom",
+        "Molecule",
+        "Element",
+        "Compound"
+      ]
+    },
+    {
+      "question": "Which one is a chemical combination of two or more atoms?",
+      "options": [
+        "Molecule",
+        "Atom",
+        "Element",
+        "Mixture"
+      ]
+    },
+    {
+      "question": "What is the difference between an element and a molecule?",
+      "options": [
+        "An element can not be broken down into smaller parts whereas a molecule can",
+        "A molecule can not be broken down into smaller parts whereas an element can",
+        "An element has a definite shape whereas a molecule doesn’t",
+        "They are the same thing"
+      ]
+    }
+  ]
+}

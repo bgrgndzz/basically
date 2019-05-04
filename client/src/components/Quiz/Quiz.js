@@ -5,14 +5,17 @@ import Question from './Question/Question';
 
 const data = {
   elements: require('../../data/elements.json'),
-  polyatomicIons: require('../../data/polyatomicIons.json')
+  polyatomicIons: require('../../data/polyatomicIons.json'),
+  questions: require('../../data/questions.json')
 };
 
 export default class Quiz extends Component {
   state = {
+    question: '',
     inputs: [],
     correctInput: {},
-    opacity: new Animated.Value(1)
+    opacity: new Animated.Value(1),
+    questionNo: 0
   }
 
   shuffleArray = (array) => {
@@ -34,6 +37,17 @@ export default class Quiz extends Component {
       this.setState({
         inputs: this.shuffleArray(inputs),
         correctInput: inputs[0]
+      });
+    } else if (this.props.quiz.type && this.props.quiz.type === 'manual') {
+      const questions = this.scope[this.props.quiz.title]
+      if (this.state.questionNo === questions.length) return this.props.changePage('Home');
+      const inputs = questions[this.state.questionNo].options;
+      const question = questions[this.state.questionNo].question;
+      this.setState({
+        inputs: this.shuffleArray(inputs),
+        correctInput: inputs[0],
+        question,
+        questionNo: this.state.questionNo + 1
       });
     } else {
       const inputs = this.shuffleArray(this.scope).slice(0, 4);
@@ -74,7 +88,7 @@ export default class Quiz extends Component {
 
   render() {
     return (
-      <Animated.View 
+      <Animated.View
         style={[
           styles.container,
           {opacity: this.state.opacity}
@@ -84,6 +98,7 @@ export default class Quiz extends Component {
           {...this.props}
           inputs={this.state.inputs}
           correctInput={this.state.correctInput}
+          question={this.state.question}
           next={this.next}
         />
       </Animated.View>

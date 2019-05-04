@@ -5,6 +5,7 @@ import {StyleSheet, Text, View} from 'react-native';
 
 import Home from './components/Home/Home';
 import Quiz from './components/Quiz/Quiz';
+import Learn from './components/Learn/Learn';
 const App = class App extends Component {
   state = {
     page: 'Home',
@@ -31,6 +32,11 @@ const App = class App extends Component {
       props.quiz = this.state.quiz;
 
       return <Quiz {...props} />;
+    } else if (this.state.page === 'Learn') {
+      props.category = this.state.category;
+      props.quiz = this.state.quiz;
+
+      return <Learn {...props} />;
     } else {
       // temporary error view
       return (

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {
-  StyleSheet, 
-  Text, 
+  StyleSheet,
+  Text,
   View,
   TouchableOpacity,
   Image
@@ -14,6 +14,8 @@ import ElementElectricalCharges from './types/elements/ElectricalCharges.js';
 import Names from './types/polyatomicIons/Names.js';
 import Symbols from './types/polyatomicIons/Symbols.js';
 import PolyatomicElectricalCharges from './types/polyatomicIons/ElectricalCharges.js';
+
+import Matter from './types/matter/Matter';
 
 export default class Question extends Component {
   state = {
@@ -37,6 +39,11 @@ export default class Question extends Component {
   }
   componentWillMount() {
     this.types = {
+      'Matter': {
+        'States of Matter': Matter,
+        'Pure Substances': Matter,
+        'Classification of Matter': Matter
+      },
       "Elements": {
         'Element Names': ElementNames,
         'Element Symbols': ElementSymbols,
@@ -53,7 +60,7 @@ export default class Question extends Component {
   render() {
     const inputs = this.props.inputs;
     const title = this.props.quiz.title;
-    const [question, inputMapper] = this.types[this.props.category][title](styles, this.state.clicked, this.handlePress, this.state.disabled, this.props.correctInput);
+    const [question, inputMapper] = this.types[this.props.category][title](styles, this.state.clicked, this.handlePress, this.state.disabled, this.props.correctInput, this.props.question);
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -70,7 +77,7 @@ export default class Question extends Component {
             style={styles.closeContainer}
             onPress={() => this.props.changePage('Home')}
           >
-            <Image 
+            <Image
               style={styles.close}
               resizeMode="contain"
               source={require('../../../images/x.png')}
@@ -85,7 +92,7 @@ export default class Question extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5'
+    backgroundColor: '#f3f7fe'
   },
   questionContainer: {
     justifyContent: 'center',
@@ -100,6 +107,7 @@ const styles = StyleSheet.create({
   },
   footerName: {
     color: 'rgba(0, 0, 0, 0.5)',
+    fontFamily: 'Poppins-Bold',
     fontSize: 17,
     fontWeight: '700',
     marginRight: 'auto',
@@ -126,8 +134,8 @@ const styles = StyleSheet.create({
   },
   headerName: {
     color: 'rgba(0, 0, 0, 0.5)',
+    fontFamily: 'Poppins-Regular',
     fontSize: 17,
-    fontWeight: '400'
   },
   question: {
     marginBottom: 25,
@@ -145,20 +153,22 @@ const styles = StyleSheet.create({
   },
   questionText: {
     color: '#FFF',
+    fontFamily: 'Poppins-Bold',
     fontSize: 36,
-    fontWeight: '600',
     marginRight: 'auto'
   },
   questionTextSecondary: {
     marginLeft: 'auto',
+    fontFamily: 'Poppins-Regular',
     color: '#FFF'
   },
   text: {
     fontSize: 17,
+    fontFamily: 'Poppins-Regular',
     textAlign: 'center'
   },
   boldText: {
-    fontWeight: '900',
+    fontFamily: 'Poppins-Bold',
   },
   inputs: {
     flexDirection: 'row',
@@ -205,6 +215,9 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 20
   },
+  chooseInputText: {
+    fontFamily: 'Poppins-Regular',
+  },
   inputContent: {
     width: '100%',
     height: 100,
@@ -217,13 +230,14 @@ const styles = StyleSheet.create({
   inputText: {
     color: '#FFF',
     fontSize: 36,
-    fontWeight: '600',
+    fontFamily: 'Poppins-Bold',
     alignSelf: 'flex-end'
   },
   inputTextSecondary: {
     textAlign: 'right',
     marginLeft: 'auto',
-    color: '#FFF'
+    color: '#FFF',
+    fontFamily: 'Poppins-Regular',
   },
   correctPressed: {
     borderColor: '#00BD55',

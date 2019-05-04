@@ -1,4 +1,49 @@
 {
+  "Matter": {
+    "quizzes": [
+      {
+        "title": "Introduction",
+        "status": "Learn",
+        "active": true
+      },
+      {
+        "title": "States of Matter",
+        "status": "Learn",
+        "active": true
+      },
+      {
+        "title": "States of Matter",
+        "status": "Revise",
+        "file": "questions",
+        "active": true,
+        "type": "manual"
+      },
+      {
+        "title": "Pure Substances",
+        "status": "Learn",
+        "active": true
+      },
+      {
+        "title": "Pure Substances",
+        "status": "Revise",
+        "file": "questions",
+        "active": true,
+        "type": "manual"
+      },
+      {
+        "title": "Properties of Matter",
+        "status": "Learn",
+        "active": true
+      },
+      {
+        "title": "Classification of Matter",
+        "status": "Revise",
+        "file": "questions",
+        "active": true,
+        "type": "manual"
+      }
+    ]
+  },
   "Elements": {
     "quizzes": [
       {
@@ -20,6 +65,20 @@
         "status": "Revise",
         "file": "elements",
         "input": "charge",
+        "active": true
+      }
+    ]
+  },
+  "Mixtures": {
+    "quizzes": [
+      {
+        "title": "Introduction",
+        "status": "Learn",
+        "active": true
+      },
+      {
+        "title": "Separating Mixtures",
+        "status": "Learn",
         "active": true
       }
     ]

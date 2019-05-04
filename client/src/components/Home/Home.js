@@ -1,139 +1,188 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native';
-
-import LinearGradient from 'react-native-linear-gradient';
+import {StyleSheet, Text, View, ScrollView, TouchableOpacity, Dimensions, Image} from 'react-native';
 
 import quizzes from '../../data/quizzes.json';
 
 export default class Home extends Component {
+  state = {
+    categories: (new Array(Object.keys(quizzes).length)).fill(0)
+  }
+
   render() {
     return (
-      <LinearGradient 
-        style={styles.container} 
-        colors={['#7F00FF', '#0077FF']}
-      >
-        <View style={styles.headings}>
-          <Text style={styles.headingOne}>Welcome!</Text>
-          <Text style={styles.headingTwo}>You can select a topic below and start revising right now!</Text>
-        </View>
-        <View style={styles.categories}>
+      <View style={styles.container}>
+        <ScrollView
+          style={styles.categories}
+          showsVerticalScrollIndicator={false}
+        >
+          <View style={styles.headings}>
+            <Text style={styles.headingOne}>Learn &amp; Revise!</Text>
+            <Text style={styles.headingTwo}>Select a topic below.</Text>
+          </View>
           {
-            Object.keys(quizzes).map(category => (
-              <View 
+            Object.keys(quizzes).map((category, index) => (
+              <View
                 style={styles.category}
                 key={category}
               >
-                <Text style={styles.categoryHeading}>{category}</Text>
-                <ScrollView 
-                  style={styles.topics}
-                  horizontal={true}
-                  showsHorizontalScrollIndicator={false}
+                <TouchableOpacity
+                  style={styles.categoryHeader}
+                  onPress={() => {
+                    let categories = this.state.categories;
+                    categories[index] = categories[index] === 1 ? 0 : 1;
+
+                    this.setState({categories});
+                  }}
                 >
-                  {
-                    quizzes[category].quizzes.map((quiz, index) => (
-                      <TouchableOpacity
-                        onPress={() => this.props.changePage('Quiz', {category, quiz})}
-                        disabled={!quiz.active}
-                        key={index}
-                      >
-                        <View 
-                          style={[
-                            styles.topic, 
-                            quiz.active ? styles.activeTopic : styles.inactiveTopic, 
-                            index === 0 ? styles.firstTopic : null
-                          ]}
+                  <Text style={styles.categoryHeading}>{category}</Text>
+                  <Image
+                    style={[styles.caret, this.state.categories[index] === 1 ? styles.caretOpen : styles.caretClosed]}
+                    source={require('../../images/arrow.png')}
+                  />
+                </TouchableOpacity>
+                {this.state.categories[index] === 1 ? (
+                  <ScrollView
+                    style={styles.topics}
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                  >
+                    {
+                      quizzes[category].quizzes.map((quiz, index) => (
+                        <TouchableOpacity
+                          onPress={() => this.props.changePage(quiz.status === 'Learn' ? 'Learn' : 'Quiz', {category, quiz})}
+                          disabled={!quiz.active}
+                          key={index}
                         >
-                          <Text 
+                          <View
                             style={[
-                              styles.topicHeadingOne, 
-                              quiz.active ? styles.activeTopicHeadingOne : styles.inactiveTopicHeadingOne
+                              styles.topic,
+                              index === 0 ? styles.firstTopic : null
                             ]}
-                          >{quiz.title}</Text>
-                          <Text 
-                            style={[
-                              styles.topicHeadingTwo, 
-                              quiz.active ? styles.activeTopicHeadingTwo : styles.inactiveTopicHeadingTwo
-                            ]}
-                          >{quiz.status}</Text>
-                        </View>
-                      </TouchableOpacity>
-                    ))
-                  }
-                </ScrollView>
+                          >
+                            <Text
+                              style={[
+                                styles.topicHeadingOne,
+                              ]}
+                            >{quiz.title}</Text>
+                            <Text
+                              style={[
+                                styles.topicHeadingTwo,
+                              ]}
+                            >{quiz.status}</Text>
+                          </View>
+                        </TouchableOpacity>
+                      ))
+                    }
+                  </ScrollView>
+                ) : null}
               </View>
             ))
           }
-        </View>
+        </ScrollView>
         <View style={styles.footer}>
           <Text style={styles.footerName}>BASICALLY</Text>
         </View>
-      </LinearGradient>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {flex: 1},
+  container: {
+    flex: 1,
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+    backgroundColor: '#f3f7fe'
+  },
   headings: {
-    flex: .5,
+    height: Dimensions.get('window').height / 2,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 25
   },
   headingOne: {
-    color: '#FFF',
-    fontSize: 34,
+    color: 'rgba(0, 0, 0, 1)',
+    fontSize: 40,
+    fontFamily: 'Poppins-Medium',
     textAlign: 'center',
-    marginBottom: 25
+    marginBottom: 15
   },
   headingTwo: {
-    color: '#e0e0e0',
+    color: 'rgba(0, 0, 0, 0.75)',
     fontSize: 17,
+    fontFamily: 'Poppins-Regular',
     textAlign: 'center'
   },
   firstTopic: {marginLeft: 25},
-  categories: {flex: .5},
-  category: {marginBottom: 25},
+  categories: {flex: .75},
+  category: {
+    margin: 15,
+    marginBottom: 25,
+    paddingVertical: 25,
+    backgroundColor: 'white',
+    shadowOffset:{width: 0, height: 1},
+    shadowRadius: 1,
+    shadowColor: '#000',
+    shadowOpacity: .1,
+    borderRadius: 8
+  },
+  categoryHeader: {
+    marginLeft: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
   categoryHeading: {
-    color: '#FFF',
+    color: 'rgba(0, 0, 0, 0.75)',
+    fontFamily: 'Poppins-Regular',
     fontSize: 15,
-    marginBottom: 10,
-    marginLeft: 25
+  },
+  caret: {
+    width: 15,
+    height: 15,
+    marginLeft: 'auto',
+    marginRight: 15
+  },
+  caretOpen: {
+    transform: [{
+      rotateZ: '-90deg'
+    }]
   },
   topics: {
     flexDirection: 'row',
     overflow: 'scroll',
     paddingTop: 5,
     paddingBottom: 5,
+    marginTop: 15
   },
   topic: {
     padding: 15,
     paddingRight: 40,
     marginRight: 10,
-    borderRadius: 8
+    borderRadius: 8,
+    backgroundColor: '#00D4FF',
+    width: 250,
+    height: 250,
+    justifyContent: 'flex-end'
   },
-  activeTopic: {
-    backgroundColor: '#FFF',
-    shadowOffset:{width: 0, height: 5},
-    shadowRadius: 10,
-    shadowColor: '#000',
-    shadowOpacity: .1
+  topicHeadingOne: {
+    fontSize: 27,
+    color: 'white',
+    fontFamily: 'Poppins-Black',
   },
-  inactiveTopic: {
-    backgroundColor: 'rgba(255, 255, 255, .35)'
+  topicHeadingTwo: {
+    color: 'white',
+    fontFamily: 'Poppins-Regular',
   },
-  topicHeadingOne: {fontWeight: '500'},
-  activeTopicHeadingTwo: {color: '#747474'},
-  inactiveTopicHeadingOne: {color: 'rgba(255, 255, 255, .7)'},
-  inactiveTopicHeadingTwo: {color: 'rgba(255, 255, 255, .35)'},
   footer: {
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 'auto',
     padding: 25
   },
   footerName: {
-    color: '#FFF',
+    color: 'rgba(0, 0, 0, 0.5)',
     fontSize: 17,
-    fontWeight: '700'
+    fontFamily: 'Poppins-Bold',
   }
 });
