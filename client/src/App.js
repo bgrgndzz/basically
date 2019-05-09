@@ -59,4 +59,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default codePush(App);
+export default App; // codePush(App)

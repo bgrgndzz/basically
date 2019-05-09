@@ -17,6 +17,8 @@ import PolyatomicElectricalCharges from './types/polyatomicIons/ElectricalCharge
 
 import Matter from './types/matter/Matter';
 
+import MoleQuestions from './types/moleQuestions/MoleQuestions';
+
 export default class Question extends Component {
   state = {
     disabled: false,
@@ -53,6 +55,10 @@ export default class Question extends Component {
         'Names': Names,
         'Symbols': Symbols,
         'Electrical Charges': PolyatomicElectricalCharges
+      },
+      'Mole Questions': {
+        'Mole Questions': MoleQuestions,
+        'Significant Figures': MoleQuestions
       }
     };
   }

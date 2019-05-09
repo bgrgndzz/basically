@@ -104,5 +104,21 @@
         "active": true
       }
     ]
+  },
+  "Mole Questions": {
+    "quizzes": [
+      {
+        "title": "Mole Questions",
+        "status": "Revise",
+        "file": "moleQuestions",
+        "active": true
+      },
+      {
+        "title": "Significant Figures",
+        "status": "Revise",
+        "file": "moleQuestions",
+        "active": true
+      }
+    ]
   }
 }
